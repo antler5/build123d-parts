@@ -1,0 +1,10 @@
+version = 1
+SPDX-PackageName = "antlers-keyring"
+SPDX-PackageSupplier = "antlers <antlers@illucid.net>"
+SPDX-PackageDownloadLocation = "https://github.com/antler5/keyring"
+
+[[annotations]]
+path = "**-**.key"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "2024 antlers <antlers@illucid.net>"
+SPDX-License-Identifier = "CC0-1.0"

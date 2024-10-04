@@ -1,8 +1,0 @@
-Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: antlers-keyring
-Upstream-Contact: antlers <antlers@illucid.net>
-Source: https://github.com/antler5/keyring
-
-Files: *-*.key
-Copyright: 2024 antlers <antlers@illucid.net>
-License: CC0-1.0
