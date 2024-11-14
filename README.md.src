@@ -50,7 +50,10 @@ guix git authenticate \\
               `(,f
                 ,(string-replace "\n" " "
                    (grep-file "#\\\\ \\K.*(?=$)' " f))
-                ,(grep-file "# SPDX-License-Identifier: \\K.*(?=$)' " f))))
+                ;; REUSE-IgnoreStart
+                ,(grep-file "# SPDX-License-Identifier: \\K.*(?=$)' " f)
+                ;; REUSE-IgnoreEnd
+                )))
           (directory-files "src" "." "\\.py$"))))
 #+END_SRC
 
@@ -73,6 +76,7 @@ Unless otherwise specified:
   (when (file-exists-p "README.md")
     (delete-file "README.md"))
   (with-temp-buffer
+    ;; REUSE-IgnoreStart
     (insert
       (string-join
         '("<!-- SPDX-FileCopyrightText: 2024 antlers <antlers@illucid.net> -->"
@@ -81,6 +85,7 @@ Unless otherwise specified:
           "<!-- Do not edit it directly -->"
           "")
         "\n"))
+    ;; REUSE-IgnoreEnd
     (insert-file "README.md.md")
     (write-region (point-min) (point-max)
       "README.md" nil 'quietly))
