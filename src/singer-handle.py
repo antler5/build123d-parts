@@ -1,7 +1,14 @@
-# %%
+# SPDX-FileCopyrightText: 2024 antlers <antlers@illucid.net>
+# SPDX-License-Identifier: GPL-3.0-only
+
+# %% Imports
 from build123d import *
 from ocp_vscode import *
 
+# %% Viewer defaults
+set_defaults(reset_camera=False)
+
+# %% Singer Handle
 _acc = 0
 def acc(n):
   global _acc
@@ -36,11 +43,6 @@ s += Line((0, finalOffset), (0, 0))
 # Revolve & Hollow out
 s = Plane.XZ * make_face(s)
 s = revolve(s, Axis.Z)
-# s -= offset(s, -thickness)
-
-# # Punch ends back out
-# s -= extrude(Circle(initialRadius + thickness), thickness)
-# s -= Pos(0,0,finalOffset) * extrude(Circle(finalRadius + thickness), -thickness)
 
 # Punch out stem
 stem = extrude(Circle(initialRadius - 2 * thickness), finalOffset)
@@ -82,12 +84,11 @@ top -= boxes
 bottom -= boxes
 
 reset_show()
-# show_object(s)
-# show_object(top)
-# show_object(boxes)
 show_object(top)
 show_object(bottom)
-# show_object(points)
-export_step(top, "top.step")
-export_step(bottom, "bottom.step")
-# %%
+
+# %% Exports
+export_step(top, "../STEPs/singer-handle-top.step")
+export_stl(top, "../STLs/singer-handle-top.step")
+export_step(bottom, "../STEPs/singer-handle-bottom.stl")
+export_stl(bottom, "../STLs/singer-handle-bottom.stl")
