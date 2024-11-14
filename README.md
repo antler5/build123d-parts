@@ -27,18 +27,33 @@ guix git authenticate \
 <table>
 <thead>
 <tr class="header">
-<th>File-name</th>
+<th>View</th>
+<th>File</th>
 <th>Description</th>
-<th>License</th>
+<th>License(s)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td>src/french-cleat.py</td>
+<td><a
+href="https://github.com/antler5/build123d-parts/blob/main/STLs/src/french-cleat.py">🧱</a></td>
+<td><a
+href="https://github.com/antler5/build123d-parts/blob/main/src/french-cleat.py">src/french-cleat.py</a></td>
 <td>Based on JWM85's <a
 href="https://www.thingiverse.com/thing:5430865">French Cleat
 Mounts</a>.</td>
-<td>GPL-3.0-only</td>
+<td>GPL-3.0-or-later, CC-BY-4.0</td>
+</tr>
+<tr class="even">
+<td><a
+href="https://github.com/antler5/build123d-parts/blob/main/STLs/singer-handle-bottom.stl">bottom</a>,
+<a
+href="https://github.com/antler5/build123d-parts/blob/main/STLs/singer-handle-top.stl">top</a></td>
+<td><a
+href="https://github.com/antler5/build123d-parts/blob/main/src/singer-handle.py">src/singer-handle.py</a></td>
+<td>A handle for my partner's Singer sewing machine. The original wooden
+handle wore through. Not sure how long the filament will last, tbh.</td>
+<td>GPL-3.0-or-later</td>
 </tr>
 </tbody>
 </table>

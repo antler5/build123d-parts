@@ -38,7 +38,34 @@ guix git authenticate \\
 
 * Included parts
 
-#+BEGIN_SRC elisp :exports results :results table :colnames '("File-name" "Description" "License")
+#+BEGIN_SRC elisp :exports results :results table :colnames '("View" "File" "Description" "License(s)")
+(defun antlers/gh-file-link (f)
+  "Return an Org-formatted link to the GitHub page for file =F=."
+  (format "[[%s%s][%s]]"
+    "https://github.com/antler5/build123d-parts/blob/main/"
+    (url-encode-url f)
+    f))
+(defun antlers/gh-view-link (f)
+  "Return an Org-formatted link to the GitHub model for =src/= file =F=."
+  (let* ((basename
+           (string-remove-prefix "src/"
+             (string-remove-suffix ".py" f)))
+         (files
+           (directory-files "STLs" nil basename)))
+    (if (cdr files)
+        (string-join
+          (-map (lambda (f)
+                  (format "[[%s%s][%s]]"
+                    "https://github.com/antler5/build123d-parts/blob/main/STLs/"
+                    (url-encode-url f)
+                    (string-remove-prefix (concat basename "-")
+                      (string-remove-suffix ".stl"
+                        f))))
+                files)
+          ", ")
+      (format "[[%s%s][🧱]]"
+        "https://github.com/antler5/build123d-parts/blob/main/STLs/"
+        (url-encode-url f)))))
 (cl-flet ((grep-file (cmd f)
             (string-trim-right
               (shell-command-to-string
@@ -47,11 +74,13 @@ guix git authenticate \\
   (let ((prefix (concat (expand-file-name ".") "/")))
     (-map (lambda (f)
             (let ((f (string-remove-prefix prefix f)))
-              `(,f
+              `(,(antlers/gh-view-link f)
+                ,(antlers/gh-file-link f)
                 ,(string-replace "\n" " "
                    (grep-file "#\\\\ \\K.*(?=$)' " f))
                 ;; REUSE-IgnoreStart
-                ,(grep-file "# SPDX-License-Identifier: \\K.*(?=$)' " f)
+                ,(string-replace "\n" ", "
+                   (grep-file "# SPDX-License-Identifier: \\K.*(?=$)' " f))
                 ;; REUSE-IgnoreEnd
                 )))
           (directory-files "src" "." "\\.py$"))))
