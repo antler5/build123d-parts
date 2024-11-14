@@ -10,7 +10,7 @@ from build123d import *
 from ocp_vscode import *
 
 # %% Viewer defaults
-set_defaults(reset_camera=False)
+set_defaults(reset_camera=Camera.CENTER)
 
 # %% Singer Handle
 _acc = 0
@@ -93,6 +93,6 @@ show_object(bottom)
 
 # %% Exports
 export_step(top, "../STEPs/singer-handle-top.step")
-export_stl(top, "../STLs/singer-handle-top.step")
-export_step(bottom, "../STEPs/singer-handle-bottom.stl")
+export_stl(top, "../STLs/singer-handle-top.stl")
+export_step(bottom, "../STEPs/singer-handle-bottom.step")
 export_stl(bottom, "../STLs/singer-handle-bottom.stl")
