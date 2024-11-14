@@ -34,9 +34,10 @@ guix git authenticate \
 </thead>
 <tbody>
 <tr class="odd">
-<td>src/singer-handle.py</td>
-<td>A handle for my partner's Singer sewing machine. The original wooden
-handle wore through. Not sure how long the filament will last, tbh.</td>
+<td>src/french-cleat.py</td>
+<td>Based on JWM85's <a
+href="https://www.thingiverse.com/thing:5430865">French Cleat
+Mounts</a>.</td>
 <td>GPL-3.0-only</td>
 </tr>
 </tbody>
