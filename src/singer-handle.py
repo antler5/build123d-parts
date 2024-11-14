@@ -1,6 +1,10 @@
 # SPDX-FileCopyrightText: 2024 antlers <antlers@illucid.net>
 # SPDX-License-Identifier: GPL-3.0-only
 
+#\ A handle for my partner's Singer sewing machine.
+#\ The original wooden handle wore through.
+#\ Not sure how long the filament will last, tbh.
+
 # %% Imports
 from build123d import *
 from ocp_vscode import *
